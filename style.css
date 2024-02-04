@@ -1,35 +1,36 @@
-
-
-*{
+* {
     padding: 0;
     margin: 0;
     color: white;
     background: linear-gradient(-45deg, #0c2e2d, #07706b, #045468, #1b2b32);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
-    width:100%;
+    width: 100%;
     background-attachment: fixed;
-    
-}
-  
-    @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }  
 
- .main-box{ 
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.main-box {
     margin-top: 60px;
     display: grid;
     place-items: center;
-    
+
 }
+
 .main-form {
     background: transparent;
     display: flex;
@@ -40,53 +41,58 @@
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    box-shadow: rgba(230, 230, 230, 0.3) 0px 19px 38px, rgba(255, 245, 245, 0.22) 0px 15px 12px, rgba(208, 208, 213, 0.25) 0px 30px 60px -12px inset, rgba(227, 222, 222, 0.3) 0px 18px 36px -18px inset , rgba(231, 231, 240, 0.1) 0px 8px 24px, rgba(236, 236, 243, 0.1) 0px 16px 56px, rgba(242, 242, 255, 0.1) 0px 24px 80px;
+    box-shadow: rgba(230, 230, 230, 0.3) 0px 19px 38px, rgba(255, 245, 245, 0.22) 0px 15px 12px, rgba(208, 208, 213, 0.25) 0px 30px 60px -12px inset, rgba(227, 222, 222, 0.3) 0px 18px 36px -18px inset, rgba(231, 231, 240, 0.1) 0px 8px 24px, rgba(236, 236, 243, 0.1) 0px 16px 56px, rgba(242, 242, 255, 0.1) 0px 24px 80px;
 
 
 }
-form input{
+
+form input {
     display: block;
     margin-bottom: 10px;
     height: 40px;
     border: 1px solid white;
     outline: none;
-    background:none !important;
-    color: white ;
+    background: none !important;
+    color: white;
     padding: 15px;
- 
+
 }
+
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
     background-color: transparent !important;
     color: white !important;
 }
 
-form{
+form {
     background: transparent;
     width: 300px;
     height: auto;
 }
-form label{
+
+form label {
     background: transparent;
 }
-.login-heading{
+
+.login-heading {
     text-align: center;
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
-    background:transparent;
+    background: transparent;
 }
- 
-.button .btn{
+
+.button .btn {
     padding: 15px;
     background: none;
     align-items: center;
     justify-content: center;
     color: white;
 }
+
 .button {
     width: 250px;
     height: 50px;
@@ -103,12 +109,13 @@ form label{
     margin-top: 20px;
     margin-left: 18px;
 }
+
 .button:before {
     content: '';
     background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
     position: absolute;
     top: -2px;
-    left:-2px;
+    left: -2px;
     background-size: 400%;
     z-index: -1;
     filter: blur(5px);
@@ -145,17 +152,25 @@ form label{
 }
 
 @keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
 }
 
 /* Register Page Side */
 
-.register-box{ 
+.register-box {
 
     display: grid;
-    place-items:center;
+    place-items: center;
     margin-top: 75px;
 }
 
@@ -169,38 +184,41 @@ form label{
     align-items: center !important;
     justify-content: center !important;
     border-radius: 10px;
-    box-shadow: rgba(230, 230, 230, 0.3) 0px 19px 38px, rgba(255, 245, 245, 0.22) 0px 15px 12px, rgba(208, 208, 213, 0.25) 0px 30px 60px -12px inset, rgba(227, 222, 222, 0.3) 0px 18px 36px -18px inset , rgba(231, 231, 240, 0.1) 0px 8px 24px, rgba(236, 236, 243, 0.1) 0px 16px 56px, rgba(242, 242, 255, 0.1) 0px 24px 80px;
-} 
-.register-heading{
+    box-shadow: rgba(230, 230, 230, 0.3) 0px 19px 38px, rgba(255, 245, 245, 0.22) 0px 15px 12px, rgba(208, 208, 213, 0.25) 0px 30px 60px -12px inset, rgba(227, 222, 222, 0.3) 0px 18px 36px -18px inset, rgba(231, 231, 240, 0.1) 0px 8px 24px, rgba(236, 236, 243, 0.1) 0px 16px 56px, rgba(242, 242, 255, 0.1) 0px 24px 80px;
+}
+
+.register-heading {
     text-align: center;
     align-items: center;
     justify-content: center;
-    background:transparent;
+    background: transparent;
     margin-top: -29px;
 
 }
+
 .head-para {
     display: grid;
     place-content: center;
     margin-top: 5px;
     background: none;
 }
-.account-heading{
+
+.account-heading {
     background: transparent;
     margin-top: 10px;
     text-align: center;
- }
-  
- .page-link{
+}
+
+.page-link {
     background: transparent;
     text-align: center;
     justify-content: center;
     text-decoration: none;
     margin-top: -10px;
-    
 
- }
- .page-link:hover{
+
+}
+
+.page-link:hover {
     text-decoration: underline;
- }
-
+}

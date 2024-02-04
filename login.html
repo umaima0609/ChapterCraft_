@@ -54,62 +54,61 @@
     crossorigin="anonymous"></script>
 
   <!-- <script src="./js/login.js"></script> -->
-  
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
-import {
-  getDatabase,
-  get,
-  ref,
-  child,
-} from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-} from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBn8ij2kc2D0hJIMSv-n8R3UbbQlXLdC8k",
-  authDomain: "fir-project-7cfeb.firebaseapp.com",
-  databaseURL: "https://fir-project-7cfeb-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "fir-project-7cfeb",
-  storageBucket: "fir-project-7cfeb.appspot.com",
-  messagingSenderId: "150973541904",
-  appId: "1:150973541904:web:8bdff2a48b439d493e6495",
-  measurementId: "G-ELDM4WDWWL",
-};
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+    import {
+      getDatabase,
+      get,
+      ref,
+      child,
+    } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+    } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
 
-const app = initializeApp(firebaseConfig);
-const db = getDatabase();
-const auth = getAuth(app);
-const dbref = ref(db);
+    const firebaseConfig = {
+      apiKey: "AIzaSyBn8ij2kc2D0hJIMSv-n8R3UbbQlXLdC8k",
+      authDomain: "fir-project-7cfeb.firebaseapp.com",
+      databaseURL: "https://fir-project-7cfeb-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "fir-project-7cfeb",
+      storageBucket: "fir-project-7cfeb.appspot.com",
+      messagingSenderId: "150973541904",
+      appId: "1:150973541904:web:8bdff2a48b439d493e6495",
+      measurementId: "G-ELDM4WDWWL",
+    };
 
-let EmailInp = document.getElementById("emailInp");
-let PassInp = document.getElementById("passwordInp");
-let MainForm = document.getElementById("MainForm");
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase();
+    const auth = getAuth(app);
+    const dbref = ref(db);
 
-let SignInUser = (evt) => {
-  evt.preventDefault();
-  signInWithEmailAndPassword(auth, EmailInp.value, PassInp.value)
-    .then((credential) => {
-      sessionStorage.setItem(
-        "user-creds",
-        JSON.stringify(credential.user)
-      );
-      window.location.href = "index.html";
+    let EmailInp = document.getElementById("emailInp");
+    let PassInp = document.getElementById("passwordInp");
+    let MainForm = document.getElementById("MainForm");
 
-    })
+    let SignInUser = (evt) => {
+      evt.preventDefault();
+      signInWithEmailAndPassword(auth, EmailInp.value, PassInp.value)
+        .then((credential) => {
+          sessionStorage.setItem(
+            "user-creds",
+            JSON.stringify(credential.user)
+          );
+          window.location.href = "index.html";
 
-    .catch((error) => {
-      alert(error.message);
-      console.log(error.code);
-      console.log(error.message);
-    });
-};
-MainForm.addEventListener("submit", SignInUser);
-</script>
+        })
+
+        .catch((error) => {
+          alert(error.message);
+          console.log(error.code);
+          console.log(error.message);
+        });
+    };
+    MainForm.addEventListener("submit", SignInUser);
+  </script>
 
 </body>
 
 </html>
-

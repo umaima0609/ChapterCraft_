@@ -1,46 +1,46 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
-import { getDatabase, ref, push, onChildAdded } from  "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js"
+import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js"
 
 document.addEventListener("DOMContentLoaded", function () {
-const firebaseConfig = {
-      databaseURL: "https://fir-project-7cfeb-default-rtdb.asia-southeast1.firebasedatabase.app/",
-};
-const app = initializeApp(firebaseConfig)
-const database = getDatabase(app)
-const BooksInDBForm = ref(database, "Books")
+    const firebaseConfig = {
+        databaseURL: "https://fir-project-7cfeb-default-rtdb.asia-southeast1.firebasedatabase.app/",
+    };
+    const app = initializeApp(firebaseConfig)
+    const database = getDatabase(app)
+    const BooksInDBForm = ref(database, "Books")
 
-const bookList = document.getElementById('book-list');
-const addBookForm = document.getElementById('add-book-form');
-let displayedBooks = []; // Array to keep track of displayed books
+    const bookList = document.getElementById('book-list');
+    const addBookForm = document.getElementById('add-book-form');
+    let displayedBooks = []; // Array to keep track of displayed books
 
-addBookForm.addEventListener("submit", function (event) {
-    event.preventDefault();
+    addBookForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    // Retrieve form values
-    const titleValue = document.getElementById('add-title').value.trim();
-    const authorValue = document.getElementById('add-author').value.trim();
-    const imageUrlValue = document.getElementById('add-image').value.trim();
-    const BookUrlValue = document.getElementById('book-url').value.trim();
+        // Retrieve form values
+        const titleValue = document.getElementById('add-title').value.trim();
+        const authorValue = document.getElementById('add-author').value.trim();
+        const imageUrlValue = document.getElementById('add-image').value.trim();
+        const BookUrlValue = document.getElementById('book-url').value.trim();
 
-    if (titleValue === '' || authorValue === '' || imageUrlValue === '' || BookUrlValue==='') {
-        alert('Fields cannot be empty! Please fill in both Title and Author.');
-    } else {
-        const newBook = {
-            title: titleValue,
-            author: authorValue,
-            imageUrl: imageUrlValue,
-            BookUrl: BookUrlValue,
-        };
-        
+        if (titleValue === '' || authorValue === '' || imageUrlValue === '' || BookUrlValue === '') {
+            alert('Fields cannot be empty! Please fill in both Title and Author.');
+        } else {
+            const newBook = {
+                title: titleValue,
+                author: authorValue,
+                imageUrl: imageUrlValue,
+                BookUrl: BookUrlValue,
+            };
 
-        const isBookDisplayed = displayedBooks.some(book => book.title === newBook.title && book.author === newBook.author);
 
-        if (!isBookDisplayed) {
-            displayedBooks.push(newBook);
+            const isBookDisplayed = displayedBooks.some(book => book.title === newBook.title && book.author === newBook.author);
 
-            const bookDiv = document.createElement('div');
-            bookDiv.innerHTML = `<div class="w-full max-w-sm  ms-4">
+            if (!isBookDisplayed) {
+                displayedBooks.push(newBook);
+
+                const bookDiv = document.createElement('div');
+                bookDiv.innerHTML = `<div class="w-full max-w-sm  ms-4">
             <div class="flex">
                 <div class="flex-shrink-0 mt-10 ">
                   <img src="${newBook.imageUrl}" alt="Book Title" class="w-28 h-auto shadow-xl rounded"/>
@@ -81,28 +81,28 @@ addBookForm.addEventListener("submit", function (event) {
     
             `;
 
-            bookList.appendChild(bookDiv);
+                bookList.appendChild(bookDiv);
 
-            // Push new book data to Firebase
-            push(BooksInDBForm, newBook);
-            console.log(`${newBook.title} by ${newBook.author}  added to database `);
+                // Push new book data to Firebase
+                push(BooksInDBForm, newBook);
+                console.log(`${newBook.title} by ${newBook.author}  added to database `);
 
-            // Clear form fields after adding the book
-            document.getElementById('add-title').value = '';
-            document.getElementById('add-author').value = '';
-            document.getElementById('add-image').value = '';
-            document.getElementById('book-url').value = '';
-        } else {
-            alert('This book is already displayed.');
+                // Clear form fields after adding the book
+                document.getElementById('add-title').value = '';
+                document.getElementById('add-author').value = '';
+                document.getElementById('add-image').value = '';
+                document.getElementById('book-url').value = '';
+            } else {
+                alert('This book is already displayed.');
+            }
         }
-    }
-});
+    });
 
-// Listen for new book added event in Firebase
-onChildAdded(BooksInDBForm, (snapshot) => {
-    const bookData = snapshot.val();
-    displayedBooks.push(bookData); // Add the book to the displayed books list
-});
+    // Listen for new book added event in Firebase
+    onChildAdded(BooksInDBForm, (snapshot) => {
+        const bookData = snapshot.val();
+        displayedBooks.push(bookData); // Add the book to the displayed books list
+    });
 });
 
 

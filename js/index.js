@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //session storage email name unique
         // const newarr = bookkkkkkk.filter()
 
-        books.forEach((book) => { 
+        books.forEach((book) => {
             const card = document.createElement('div');
             card.innerHTML = `<div class="w-full max-w-sm  ms-4">
         <div class="flex">
@@ -56,9 +56,9 @@ document.addEventListener("DOMContentLoaded", function () {
                  Add To Cart</button>  
             </div>
         </div>
-    </div> `;  
+    </div> `;
             cardContainer.appendChild(card);
-        
+
         })
     }
 
